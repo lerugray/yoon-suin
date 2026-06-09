@@ -1,3 +1,200 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+// Override quartz-themes ITS-Theme palette injection.
+// The `its-theme.ttrpg-dnd` variation sets --accent: #79c78e (sage green)
+// and overrides --secondary, --headers, etc. via high-specificity Obsidian
+// CSS vars. We reassert the intended warm parchment palette here with
+// equal or higher specificity so the correct colors actually render.
+
+:root:root {
+  // Core Quartz color tokens — parchment + dark-brown palette
+  --light: #f5efe0;
+  --lightgray: #e0d4b8;
+  // --gray: was #a0906e (2.73:1 — FAIL WCAG AA). New: #6b5a42 (5.80:1 ✓)
+  // Used for muted text, dates, search placeholder, TOC inactive links, footer.
+  --gray: #6b5a42;
+  --darkgray: #2e1a0e;
+  --dark: #1a0e06;
+  --secondary: #7a3a10;
+  // --tertiary: was #9e6c00 (3.98:1 — FAIL WCAG AA). New: #7a5200 (6.03:1 ✓)
+  // Used for link hover, active-link highlight, Explorer active items, search match highlight.
+  --tertiary: #7a5200;
+  --highlight: rgba(122, 82, 0, 0.12);
+  --textHighlight: #c89010aa;
+
+  // ITS-Theme variable overrides — map to our palette
+  --accent: #7a3a10;
+  --accent-color: 122, 58, 16;
+  --accent-h: 22;
+  --accent-s: 76%;
+  --accent-l: 27%;
+  --accent-text: #f5efe0;
+  --headers: #1a0e06;
+  --text: #2e1a0e;
+  --note: #f5efe0;
+  --side-bar: #e8dcc8;
+  --outer-bar: #ddd0b5;
+  --table: #d5c8a5;
+  --td: #f0e8d5;
+  --soft-text: #7a6650;
+  --link: #7a3a10;
+  // --link-hover: was #9e6c00 (3.98:1). Now matches --tertiary.
+  --link-hover: #7a5200;
+
+  // Map Obsidian-style vars back to our palette
+  --text-normal: #2e1a0e;
+  --text-muted: #7a6650;
+  // --text-faint: was #a09070 (2.72:1 — FAIL). New: #705c44 (5.54:1 ✓)
+  --text-faint: #705c44;
+  --text-accent: #7a3a10;
+  // --text-accent-hover: was #9e6c00 (3.98:1). Now matches --tertiary.
+  --text-accent-hover: #7a5200;
+  --background-primary: #f5efe0;
+  --background-secondary: #e8dcc8;
+  --background-modifier-border: #d5c8a5;
+  --interactive-accent: #7a3a10;
+  --interactive-accent-hover: #7a5200;
+  --nav-item-color: #2e1a0e;
+  --nav-item-color-active: #7a3a10;
+  --icon-color: #2e1a0e;
+  --icon-color-active: #7a3a10;
+  --link-color: #7a3a10;
+  --link-color-hover: #7a5200;
+  --color-accent: #7a3a10;
+}
+
+// ── WCAG AA contrast fixes ──────────────────────────────────────────────────
+//
+// Several Quartz component rules use opacity or var(--gray)/var(--tertiary)
+// which — even after the :root:root token fixes above — resolve to values
+// that fail 4.5:1 on the cream bg #f5efe0. Override them here with direct
+// dark-brown values.
+
+// TOC: inactive links use `opacity: 0.35` on var(--dark) → blends to ~2.3:1.
+// Bump to 0.65 (≈4.8:1) so they're readable but still visually subordinate
+// to the in-view links (which use opacity 0.75).
+ul.toc-content.overflow > li > a {
+  opacity: 0.65 !important;
+}
+ul.toc-content.overflow > li > a.in-view {
+  opacity: 1 !important;
+  color: var(--secondary);
+}
+
+// Search: placeholder text uses var(--gray). Already fixed via token, but
+// belt-and-suspenders for the ghost-text overlay.
+.search > .search-button > p {
+  color: var(--gray);
+}
+
+// Explorer: active file link uses var(--tertiary) — fixed via token above.
+// Fold icons use currentColor from parent; ensure they inherit dark.
+.explorer .fold {
+  color: var(--dark);
+  opacity: 0.7;
+}
+
+// Breadcrumbs: inherit --darkgray; no explicit color set so they're fine,
+// but ensure separator > p text is readable.
+.breadcrumb-element p {
+  color: var(--darkgray);
+}
+
+// Footer / content-meta dates & tags: use var(--gray) — fixed via token.
+// Explicit rule to catch any inline-styled instances.
+.content-meta,
+.content-meta * {
+  color: var(--gray);
+}
+
+// Graph labels: graph uses SVG fill, inherit from --dark already. Fine.
+
+// Tags on article pages: background uses --highlight (very light), text --secondary.
+// --secondary is 7.5:1 ✓ — already passing. No change needed.
+
+// Checked-off list items use var(--gray) for strikethrough text — now passes.
+
+// ── Dark mode: warm charcoal-parchment palette ─────────────────────────────
+//
+// Contrast ratios against bg #1a1208 (verified with WCAG relative-luminance):
+//   --dark  #e8d8b0  13.12:1 ✓  (body text)
+//   --darkgray #c8b48a  9.13:1 ✓  (dates, meta)
+//   --gray  #9c8a6e   5.53:1 ✓  (muted text — was #5a4830 → 2.12:1 FAIL, the root cause)
+//   --secondary #c87941  5.53:1 ✓  (links)
+//   --tertiary  #d4a017  7.80:1 ✓  (hover/active)
+
+:root[saved-theme="dark"]:root {
+  --light: #1a1208;
+  --lightgray: #2e2010;
+  // was #5a4830 (2.12:1 — FAIL). New: #9c8a6e (5.53:1 ✓)
+  // Used for muted text, TOC inactive, search placeholder, content-meta dates.
+  --gray: #9c8a6e;
+  --darkgray: #c8b48a;
+  --dark: #e8d8b0;
+  --secondary: #c87941;
+  --tertiary: #d4a017;
+  --highlight: rgba(212, 160, 23, 0.15);
+  --textHighlight: #c87941aa;
+
+  // ITS-Theme / Obsidian var overrides for dark mode
+  --accent: #c87941;
+  --accent-color: 200, 121, 65;
+  --accent-h: 22;
+  --accent-s: 55%;
+  --accent-l: 52%;
+  --accent-text: #1a1208;
+  --headers: #e8d8b0;
+  --text: #c8b48a;
+  --note: #1a1208;
+  --side-bar: #221810;
+  --outer-bar: #1a1208;
+  --table: #2e2010;
+  --td: #251c0e;
+  --soft-text: #9c8a6e;
+  --link: #c87941;
+  --link-hover: #d4a017;
+
+  --background-primary: #1a1208;
+  --background-secondary: #2e2010;
+  --background-modifier-border: #3a2c1a;
+  --text-normal: #c8b48a;
+  --text-muted: #9c8a6e;
+  --text-faint: #9c8a6e;
+  --text-accent: #c87941;
+  --text-accent-hover: #d4a017;
+  --interactive-accent: #c87941;
+  --interactive-accent-hover: #d4a017;
+  --link-color: #c87941;
+  --link-color-hover: #d4a017;
+  --color-accent: #c87941;
+  --nav-item-color: #c8b48a;
+  --nav-item-color-active: #c87941;
+  --icon-color: #c8b48a;
+  --icon-color-active: #c87941;
+}
+
+// Dark mode TOC: match light-mode opacity fix
+:root[saved-theme="dark"]:root ul.toc-content.overflow > li > a {
+  opacity: 0.65 !important;
+}
+:root[saved-theme="dark"]:root ul.toc-content.overflow > li > a.in-view {
+  opacity: 1 !important;
+  color: var(--secondary);
+}
+
+// ── Backlinks panel: usable scroll height ──────────────────────────────────
+//
+// The .backlinks component renders a ul.overflow whose max-height resolves to
+// calc(100% - 2rem) relative to .backlinks itself. Because .backlinks is a
+// flex child in a sticky 100vh sidebar with no explicit height, the container
+// collapses and the list ends up with a tiny scroll area.
+// Fix: give the backlinks section a sensible min+max height so it's browsable.
+
+.backlinks {
+  > ul.overflow {
+    max-height: 18rem;
+    min-height: 4rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
