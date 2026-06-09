@@ -31,8 +31,7 @@ and no one has yet given it.
   approached**.
 - **[[Turn 11]]** — (OOC pause; character sheet check.)
 - **[[Turn 12]]** — Vothrog cast *Speak Truth to the Wretched*,
-  spending 1 HP, and spoke plainly: that [[Cheth-of-the-Salt-Shore|
-  Cheth]] had said what was true, that Vothrog believed it too, and
+  spending 1 HP, and spoke plainly: that [[Cheth-of-the-Salt-Shore|Cheth]] had said what was true, that Vothrog believed it too, and
   was not going away. Krah-Moh relayed.
 - **[[Turn 13]]** — The old man rose, walked to the **oldest
   offering on the line**, touched it with a flat claw, then looked

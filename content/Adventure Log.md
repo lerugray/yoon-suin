@@ -49,15 +49,7 @@ numbers, then narrates the consequences. A turn is short by design
 (one decision and its outcome), so the chronicle can grow without
 anyone needing to keep the whole campaign in their head.
 
-```dataview
-TABLE WITHOUT ID
-  file.link as "Turn",
-  file.size as "Size (chars)"
-FROM "Turns"
-WHERE type = "turn"
-SORT turn ASC
-```
-
-*(The Dataview table above renders inside Obsidian. On the published
-site the static list above is the canonical navigation.)*
+The full per-turn list with one-line blurbs is at the top of this
+page; the [[Turns/Turns|Turns index]] has the static turn-by-turn
+navigation.
 - [[Turn 17]]

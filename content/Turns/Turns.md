@@ -14,18 +14,6 @@ is the per-turn landing inside the `Turns/` folder.
 
 ## All turns
 
-```dataview
-TABLE WITHOUT ID
-  file.link as "Turn",
-  turn as "N",
-  file.size as "Size (chars)"
-FROM "Turns"
-WHERE type = "turn"
-SORT turn ASC
-```
-
-## Static list (publish-friendly)
-
 - [[Turn 01]] · [[Turn 02]] · [[Turn 03]] · [[Turn 04]] · [[Turn 05]]
 - [[Turn 06]] · [[Turn 07]] · [[Turn 08]] · [[Turn 09]] · [[Turn 10]]
 - [[Turn 11]] · [[Turn 12]] · [[Turn 13]] · [[Turn 14]] · [[Turn 15]]

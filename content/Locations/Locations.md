@@ -11,7 +11,7 @@ Every named place in the campaign, organized by geography. See
 
 ## Geography map
 
-Also see the [[Maps/Yellow City — Current State.canvas|Yellow City Current-State canvas]] for a geography-of-relationships view.
+Also see the [[Maps/Maps|Maps]] folder for the city's quarters and sites rendered turn by turn.
 
 <details open>
 <summary>Geography map</summary>
@@ -66,18 +66,6 @@ flowchart TB
 - [[Old Town]] — *south, ruined; site of the [[Salt Shore Disturbance]].*
   - [[Ward of the Salt Shore]] — *Vothrog's current location.*
     - [[Tidal Mark]] — *the offerings, the old crab-man, the recognition.*
-
-## Dataview index (renders inside Obsidian only)
-
-```dataview
-TABLE WITHOUT ID
-  file.link as "Place",
-  kind as "Kind",
-  parent as "Parent"
-FROM "Locations"
-WHERE type = "location"
-SORT parent ASC, file.name ASC
-```
 
 ## See also
 

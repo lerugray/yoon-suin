@@ -6,8 +6,7 @@ publish: true
 # Ray's Solo Campaigns
 
 A vault of solo tabletop RPG campaigns, played and chronicled in
-[mission-companion](https://github.com/lerugray/mission-companion)'s
-RPG mode.
+mission-companion's RPG mode.
 
 ## Active campaigns
 
@@ -46,14 +45,13 @@ slums.
 
 | Folder | Contents |
 |---|---|
-| Root | [[Campaign|Campaign seed]], [[Chronicle|Chronicle]], [[Adventure Log|Adventure Log index]]. |
-| [[Turns/Turns|Turns]] | One note per ❖ turn (Turn 01 … Turn 16). |
-| [[Characters/Characters|Characters]] | One note per named NPC; grouped by faction; relationship diagram. |
-| [[Locations/Locations|Locations]] | One note per named place; geography hierarchy. |
-| [[Events/Salt Shore Disturbance|Events]] | Historical events the campaign keeps circling. |
-| Maps | A current-state JSON Canvas, scene paintings. |
-| Portraits | Character portrait paintings. |
-| Excalidraw | Editable Excalidraw drawings — [[Cell Relationships.excalidraw|Cell Relationships]], [[Yellow City Geography.excalidraw|Yellow City Geography]], [[Campaign Arc — Road South.excalidraw|Campaign Arc — Road South]]. |
+| Root | [[Campaign\|Campaign seed]], [[Chronicle\|Chronicle]], [[Adventure Log\|Adventure Log index]]. |
+| [[Turns/Turns\|Turns]] | One note per ❖ turn (Turn 01 … Turn 16). |
+| [[Characters/Characters\|Characters]] | One note per named NPC; grouped by faction; relationship diagram. |
+| [[Locations/Locations\|Locations]] | One note per named place; geography hierarchy. |
+| [[Events/Salt Shore Disturbance\|Events]] | Historical events the campaign keeps circling. |
+| [[Maps/Maps\|Maps]] | The city maps, turn by turn, and scene paintings. |
+| [[Portraits/Portraits\|Portraits]] | Character portrait paintings. |
 
 ## How play actually happens
 
@@ -66,18 +64,3 @@ the whole state in my head.
 
 Every turn is one ❖ in the [[Adventure Log]]. **Sixteen turns in as
 of this publish.**
-
----
-
-```dataview
-TABLE WITHOUT ID
-  file.link as "Most recent activity",
-  turn as "Turn"
-FROM "Turns"
-WHERE type = "turn"
-SORT turn DESC
-LIMIT 3
-```
-
-*(Dataview renders inside Obsidian. On the published site, the
-read-in-order list above is the canonical entry point.)*

@@ -81,20 +81,6 @@ The player character's cell, based at the [[Canal Quarter Safehouse]].
 
 - [[Anonymous letter writer]] — *learned-hand High Tongue; pointed at Cheth.*
 
-## Dataview index (renders inside Obsidian only)
-
-```dataview
-TABLE WITHOUT ID
-  file.link as "Name",
-  species as "Species",
-  group as "Group",
-  role as "Role",
-  status as "Status"
-FROM "Characters"
-WHERE type = "character"
-SORT group ASC, file.name ASC
-```
-
 ## How to add a new character
 
 When a new NPC enters the story:

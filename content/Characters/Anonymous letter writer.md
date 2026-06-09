@@ -35,8 +35,7 @@ produced it in [[Turn 04]]:
 
 ## What this implies
 
-- The writer **knew to point Vothrog at [[Cheth-of-the-Salt-Shore|
-  Cheth]]** before anyone in the cell had spoken the name.
+- The writer **knew to point Vothrog at [[Cheth-of-the-Salt-Shore|Cheth]]** before anyone in the cell had spoken the name.
 - The writer has not identified themselves and has made **no
   further contact** through Turn 15.
 - Their motive is unknown.

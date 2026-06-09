@@ -5,7 +5,7 @@ kind: heretical-cell
 base: "[[Canal Quarter Safehouse]]"
 publish: true
 ---
-- [ ] 
+
 # The Congregation of the Unwashed
 
 Vothrog's cell. A **heretical congregation** preaching that the
