@@ -120,8 +120,8 @@ ul.toc-content.overflow > li > a.in-view {
 //   --dark  #e8d8b0  13.12:1 ✓  (body text)
 //   --darkgray #c8b48a  9.13:1 ✓  (dates, meta)
 //   --gray  #9c8a6e   5.53:1 ✓  (muted text — was #5a4830 → 2.12:1 FAIL, the root cause)
-//   --secondary #c87941  5.53:1 ✓  (links)
-//   --tertiary  #d4a017  7.80:1 ✓  (hover/active)
+//   --secondary #daa520  8.28:1 ✓  (links — was #c87941 peach 5.53:1, passes but reads garish)
+//   --tertiary  #e8b820  9.64:1 ✓  (hover/active — warm bright gold)
 
 :root[saved-theme="dark"]:root {
   --light: #1a1208;
@@ -131,17 +131,19 @@ ul.toc-content.overflow > li > a.in-view {
   --gray: #9c8a6e;
   --darkgray: #c8b48a;
   --dark: #e8d8b0;
-  --secondary: #c87941;
-  --tertiary: #d4a017;
-  --highlight: rgba(212, 160, 23, 0.15);
-  --textHighlight: #c87941aa;
+  // was #c87941 (peach, 5.53:1 — passes but garish orange-peach). New: #daa520 (goldenrod, 8.28:1 ✓)
+  --secondary: #daa520;
+  // was #d4a017 (7.80:1 ✓). New: #e8b820 (9.64:1 ✓) — brighter gold for hover distinction
+  --tertiary: #e8b820;
+  --highlight: rgba(218, 165, 32, 0.15);
+  --textHighlight: #daa520aa;
 
   // ITS-Theme / Obsidian var overrides for dark mode
-  --accent: #c87941;
-  --accent-color: 200, 121, 65;
-  --accent-h: 22;
-  --accent-s: 55%;
-  --accent-l: 52%;
+  --accent: #daa520;
+  --accent-color: 218, 165, 32;
+  --accent-h: 43;
+  --accent-s: 74%;
+  --accent-l: 49%;
   --accent-text: #1a1208;
   --headers: #e8d8b0;
   --text: #c8b48a;
@@ -151,8 +153,8 @@ ul.toc-content.overflow > li > a.in-view {
   --table: #2e2010;
   --td: #251c0e;
   --soft-text: #9c8a6e;
-  --link: #c87941;
-  --link-hover: #d4a017;
+  --link: #daa520;
+  --link-hover: #e8b820;
 
   --background-primary: #1a1208;
   --background-secondary: #2e2010;
@@ -160,17 +162,17 @@ ul.toc-content.overflow > li > a.in-view {
   --text-normal: #c8b48a;
   --text-muted: #9c8a6e;
   --text-faint: #9c8a6e;
-  --text-accent: #c87941;
-  --text-accent-hover: #d4a017;
-  --interactive-accent: #c87941;
-  --interactive-accent-hover: #d4a017;
-  --link-color: #c87941;
-  --link-color-hover: #d4a017;
-  --color-accent: #c87941;
+  --text-accent: #daa520;
+  --text-accent-hover: #e8b820;
+  --interactive-accent: #daa520;
+  --interactive-accent-hover: #e8b820;
+  --link-color: #daa520;
+  --link-color-hover: #e8b820;
+  --color-accent: #daa520;
   --nav-item-color: #c8b48a;
-  --nav-item-color-active: #c87941;
+  --nav-item-color-active: #daa520;
   --icon-color: #c8b48a;
-  --icon-color-active: #c87941;
+  --icon-color-active: #daa520;
 }
 
 // Dark mode TOC: match light-mode opacity fix
